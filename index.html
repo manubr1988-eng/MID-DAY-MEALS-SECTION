@@ -1,0 +1,188 @@
+<div class="mdm-table">
+
+<h3>🍱 ಮಧ್ಯಾಹ್ನ ಊಟ ಲೆಕ್ಕ (2025–26)</h3>
+
+<!-- INPUT -->
+<div class="input-box">
+  1–5: 
+  <input type="number" id="c1" placeholder="ಸಂಖ್ಯೆ ನಮೂದಿಸಿ">
+
+  6–8: 
+  <input type="number" id="c2" placeholder="ಸಂಖ್ಯೆ ನಮೂದಿಸಿ">
+
+  9–10: 
+  <input type="number" id="c3" placeholder="ಸಂಖ್ಯೆ ನಮೂದಿಸಿ">
+</div>
+
+<table>
+<thead>
+<tr>
+<th>ಕ್ರಮ</th>
+<th>ಅಂಶ</th>
+<th>1–5</th>
+<th>6–8</th>
+<th>9–10</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td>ಅಕ್ಕಿ</td>
+<td id="r1">0 ಗ್ರಾಂ</td>
+<td id="r2">0 ಗ್ರಾಂ</td>
+<td id="r3">0 ಗ್ರಾಂ</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>ಬೇಳೆ</td>
+<td id="d1">0 ಗ್ರಾಂ</td>
+<td id="d2">0 ಗ್ರಾಂ</td>
+<td id="d3">0 ಗ್ರಾಂ</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>ಎಣ್ಣೆ</td>
+<td id="o1">0 ಗ್ರಾಂ</td>
+<td id="o2">0 ಗ್ರಾಂ</td>
+<td id="o3">0 ಗ್ರಾಂ</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>ತರಕಾರಿ</td>
+<td id="v1">0 ಗ್ರಾಂ</td>
+<td id="v2">0 ಗ್ರಾಂ</td>
+<td id="v3">0 ಗ್ರಾಂ</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>ಉಪ್ಪು</td>
+<td id="s1">0 ಗ್ರಾಂ</td>
+<td id="s2">0 ಗ್ರಾಂ</td>
+<td id="s3">0 ಗ್ರಾಂ</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>ಮಸಾಲೆ</td>
+<td id="m1">0 ಗ್ರಾಂ</td>
+<td id="m2">0 ಗ್ರಾಂ</td>
+<td id="m3">0 ಗ್ರಾಂ</td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+<style>
+.mdm-table{
+  max-width:900px;
+  margin:auto;
+  font-family:Arial;
+}
+
+.input-box{
+  background:#ffeb3b;
+  padding:12px;
+  margin-bottom:10px;
+  border-radius:10px;
+  font-weight:bold;
+  text-align:center;
+}
+
+input{
+  width:90px;
+  padding:6px;
+  margin:5px;
+  border-radius:6px;
+  border:1px solid #999;
+  text-align:center;
+}
+
+input::placeholder{
+  font-size:12px;
+  color:#666;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  text-align:center;
+}
+
+th,td{
+  border:1px solid #000;
+  padding:8px;
+}
+
+th{
+  background:#e0a96d;
+}
+
+tr:nth-child(even){
+  background:#f5f5f5;
+}
+</style>
+
+<script>
+function calc(){
+
+let c1 = +document.getElementById("c1").value || 0;
+let c2 = +document.getElementById("c2").value || 0;
+let c3 = +document.getElementById("c3").value || 0;
+
+// per student grams
+let rice1=100, rice2=150, rice3=150;
+let dal1=20, dal2=30, dal3=30;
+let oil1=5, oil2=7.5, oil3=7.5;
+let veg1=20, veg2=30, veg3=30;
+
+// calc
+let r1=c1*rice1, r2=c2*rice2, r3=c3*rice3;
+let d1=c1*dal1,  d2=c2*dal2,  d3=c3*dal3;
+let o1=c1*oil1,  o2=c2*oil2,  o3=c3*oil3;
+let v1=c1*veg1,  v2=c2*veg2,  v3=c3*veg3;
+
+// extras
+let s1=c1*2, s2=c2*2, s3=c3*2;
+let m1=c1*1, m2=c2*1, m3=c3*1;
+
+// output with "ಗ್ರಾಂ"
+document.getElementById("r1").innerText=r1+" ಗ್ರಾಂ";
+document.getElementById("r2").innerText=r2+" ಗ್ರಾಂ";
+document.getElementById("r3").innerText=r3+" ಗ್ರಾಂ";
+
+document.getElementById("d1").innerText=d1+" ಗ್ರಾಂ";
+document.getElementById("d2").innerText=d2+" ಗ್ರಾಂ";
+document.getElementById("d3").innerText=d3+" ಗ್ರಾಂ";
+
+document.getElementById("o1").innerText=o1.toFixed(1)+" ಗ್ರಾಂ";
+document.getElementById("o2").innerText=o2.toFixed(1)+" ಗ್ರಾಂ";
+document.getElementById("o3").innerText=o3.toFixed(1)+" ಗ್ರಾಂ";
+
+document.getElementById("v1").innerText=v1+" ಗ್ರಾಂ";
+document.getElementById("v2").innerText=v2+" ಗ್ರಾಂ";
+document.getElementById("v3").innerText=v3+" ಗ್ರಾಂ";
+
+document.getElementById("s1").innerText=s1+" ಗ್ರಾಂ";
+document.getElementById("s2").innerText=s2+" ಗ್ರಾಂ";
+document.getElementById("s3").innerText=s3+" ಗ್ರಾಂ";
+
+document.getElementById("m1").innerText=m1+" ಗ್ರಾಂ";
+document.getElementById("m2").innerText=m2+" ಗ್ರಾಂ";
+document.getElementById("m3").innerText=m3+" ಗ್ರಾಂ";
+
+}
+
+document.querySelectorAll("input").forEach(i=>{
+  i.addEventListener("input",calc);
+});
+
+calc();
+</script>
