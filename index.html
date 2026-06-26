@@ -157,7 +157,7 @@ font-size:19px;
 
 <tr>
 <td>6</td>
-<td>ಹಾಲು</td>
+<td>ಹಾಲಿನ ಪುಡಿtd>
 <td id="m1">0 ಗ್ರಾಂ</td>
 <td id="m2">0 ಗ್ರಾಂ</td>
 <td id="mt">0 ಗ್ರಾಂ</td>
@@ -165,6 +165,14 @@ font-size:19px;
 
 <tr>
 <td>7</td>
+<td>ರಾಗಿ ಮಾಲ್ಟ್</td>
+<td id="rm1">0 ಗ್ರಾಂ</td>
+<td id="rm2">0 ಗ್ರಾಂ</td>
+<td id="rmt">0 ಗ್ರಾಂ</td>
+</tr>
+
+<tr>
+<td>8</td>
 <td>ಸಕ್ಕರೆ</td>
 <td id="sg1">0 ಗ್ರಾಂ</td>
 <td id="sg2">0 ಗ್ರಾಂ</td>
@@ -188,8 +196,6 @@ font-size:19px;
 <td id="ss">0</td>
 <td id="stu">0</td>
 </tr>
-
-
 
 </table>
 
@@ -217,6 +223,7 @@ let oil1=j*5;
 let salt1=j*2;
 let veg1=j*50;
 let milk1=j*18;
+let ragi1=j*5;        // Ragi Malt 5g
 let sugar1=j*10;
 let cg1=j*6.78;
 
@@ -227,10 +234,11 @@ let oil2=s*7.5;
 let salt2=s*4;
 let veg2=s*75;
 let milk2=s*18;
+let ragi2=s*5;        // Ragi Malt 5g
 let sugar2=s*10;
 let cg2=s*10.17;
 
-/* Display */
+/* Display Results */
 
 document.getElementById("r1").innerHTML=qty(rice1);
 document.getElementById("r2").innerHTML=qty(rice2);
@@ -256,6 +264,11 @@ document.getElementById("m1").innerHTML=qty(milk1);
 document.getElementById("m2").innerHTML=qty(milk2);
 document.getElementById("mt").innerHTML=qty(milk1+milk2);
 
+// Ragi Malt Display
+document.getElementById("rm1").innerHTML=qty(ragi1);
+document.getElementById("rm2").innerHTML=qty(ragi2);
+document.getElementById("rmt").innerHTML=qty(ragi1+ragi2);
+
 document.getElementById("sg1").innerHTML=qty(sugar1);
 document.getElementById("sg2").innerHTML=qty(sugar2);
 document.getElementById("sgt").innerHTML=qty(sugar1+sugar2);
@@ -268,6 +281,8 @@ document.getElementById("sj").innerHTML=j;
 document.getElementById("ss").innerHTML=s;
 document.getElementById("stu").innerHTML=j+s;
 
+// Safety check for older IDs to ensure no script crashing
+if(document.getElementById("grandRice")){
 document.getElementById("grandRice").innerHTML=qty(rice1+rice2);
 document.getElementById("grandDal").innerHTML=qty(dal1+dal2);
 document.getElementById("grandOil").innerHTML=qty(oil1+oil2);
@@ -276,7 +291,7 @@ document.getElementById("grandVeg").innerHTML=qty(veg1+veg2);
 document.getElementById("grandMilk").innerHTML=qty(milk1+milk2);
 document.getElementById("grandSugar").innerHTML=qty(sugar1+sugar2);
 document.getElementById("grandCG").innerHTML="₹"+(cg1+cg2).toFixed(2);
-
 }
 
+}
 </script>
