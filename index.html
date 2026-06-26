@@ -96,10 +96,10 @@ font-weight:bold;
 font-size:18px;
 }
 
-.grandRow{
-background:#81d4fa !important;
+.newCostRow{
+background:#e0f7fa !important;
 font-weight:bold;
-font-size:19px;
+font-size:18px;
 }
 </style>
 
@@ -157,7 +157,7 @@ font-size:19px;
 
 <tr>
 <td>6</td>
-<td>ಹಾಲಿನ ಪುಡಿ</td>
+<td>ಹಾಲು</td>
 <td id="m1">0 ಗ್ರಾಂ</td>
 <td id="m2">0 ಗ್ರಾಂ</td>
 <td id="mt">0 ಗ್ರಾಂ</td>
@@ -180,7 +180,7 @@ font-size:19px;
 </tr>
 
 <tr class="cgRow">
-<td colspan="2"> ಬೇಳೆ, ತರಕಾರಿ, ಎಣ್ಣೆ, ಉಪ್ಪು, ಇಂಧನ<br>
+<td colspan="2">A ಬೇಳೆ, ತರಕಾರಿ, ಎಣ್ಣೆ, ಉಪ್ಪು, ಇಂಧನ<br>
  ಸಾಂಬಾರ್‌ ಪದಾರ್ಥ ಮತ್ತು ಇತರೆ ವೆಚ್ಚ <br>
  
   
@@ -188,6 +188,13 @@ font-size:19px;
 <td id="cg1">₹0.00</td>
 <td id="cg2">₹0.00</td>
 <td id="cgt">₹0.00</td>
+</tr>
+
+<tr class="newCostRow">
+<td colspan="2">B ತರಕಾರಿ, ಸಾಂಬಾರು ಪದಾರ್ಥ, ಉಪ್ಪು ಮತ್ತು <br> ಕ್ಷೀರಭಾಗ್ಯ ಯೋಜನೆಯ 10ಗ್ರಾಂ ಸಕ್ಕರೆಯ ಖರ್ಚು ಸೇರಿ</td>
+<td id="vcs1">₹0.00</td>
+<td id="vcs2">₹0.00</td>
+<td id="vcst">₹0.00</td>
 </tr>
 
 <tr class="totalRow">
@@ -223,8 +230,9 @@ let oil1=j*5;
 let salt1=j*2;
 let veg1=j*50;
 let milk1=j*18;
-let ragi1=j*5;        // Ragi Malt 5g
+let ragi1=j*5;        
 let sugar1=j*10;
+let vcs1=j*2.71;      // ತರಕಾರಿ + ಸಾಂಬಾರು + ಉಪ್ಪು + 10ಗ್ರಾಂ ಸಕ್ಕರೆ ವೆಚ್ಚ (₹2.71)
 let cg1=j*6.78;
 
 /* 6-10 */
@@ -234,8 +242,9 @@ let oil2=s*7.5;
 let salt2=s*4;
 let veg2=s*75;
 let milk2=s*18;
-let ragi2=s*5;        // Ragi Malt 5g
+let ragi2=s*5;        
 let sugar2=s*10;
+let vcs2=s*3.87;      // ತರಕಾರಿ + ಸಾಂಬಾರು + ಉಪ್ಪು + 10ಗ್ರಾಂ ಸಕ್ಕರೆ ವೆಚ್ಚ (₹3.87)
 let cg2=s*10.17;
 
 /* Display Results */
@@ -264,7 +273,6 @@ document.getElementById("m1").innerHTML=qty(milk1);
 document.getElementById("m2").innerHTML=qty(milk2);
 document.getElementById("mt").innerHTML=qty(milk1+milk2);
 
-// Ragi Malt Display
 document.getElementById("rm1").innerHTML=qty(ragi1);
 document.getElementById("rm2").innerHTML=qty(ragi2);
 document.getElementById("rmt").innerHTML=qty(ragi1+ragi2);
@@ -272,6 +280,11 @@ document.getElementById("rmt").innerHTML=qty(ragi1+ragi2);
 document.getElementById("sg1").innerHTML=qty(sugar1);
 document.getElementById("sg2").innerHTML=qty(sugar2);
 document.getElementById("sgt").innerHTML=qty(sugar1+sugar2);
+
+// New Special Cost Row Display (No Serial Number)
+document.getElementById("vcs1").innerHTML="₹"+vcs1.toFixed(2);
+document.getElementById("vcs2").innerHTML="₹"+vcs2.toFixed(2);
+document.getElementById("vcst").innerHTML="₹"+(vcs1+vcs2).toFixed(2);
 
 document.getElementById("cg1").innerHTML="₹"+cg1.toFixed(2);
 document.getElementById("cg2").innerHTML="₹"+cg2.toFixed(2);
@@ -281,7 +294,6 @@ document.getElementById("sj").innerHTML=j;
 document.getElementById("ss").innerHTML=s;
 document.getElementById("stu").innerHTML=j+s;
 
-// Safety check for older IDs to ensure no script crashing
 if(document.getElementById("grandRice")){
 document.getElementById("grandRice").innerHTML=qty(rice1+rice2);
 document.getElementById("grandDal").innerHTML=qty(dal1+dal2);
